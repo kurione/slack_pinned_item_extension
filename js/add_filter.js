@@ -20,39 +20,45 @@ create_selectbox = function(arr) {
   });
 }
 
+showAll = function(){
+  $("div.section_content.pinned_items div.pinned_item").each(function() {
+    $(this).show();
+  });
+}
+showMessage = function(){
+  $("div.section_content.pinned_items div.pinned_item").each(function() {
+    $(this).show();
+  });
+  $("div.section_content.pinned_items p.pin_metadata").each(function() {
+    $(this).parent('div').hide();
+  });
+}
+showSelectedExt = function(selected_ext){
+  $("div.section_content.pinned_items div.pinned_item").each(function() {
+    $(this).hide();
+  });
+  $("div.section_content.pinned_items p.pin_metadata").each(function() {
+    var ext = $(this).text().trim();
+    if (ext == selected_ext) {
+      $(this).parent('div').show();
+    }
+  });
+}
+
 add_filter = function(){
   if ($("select[name='pinned_items_filter']").length > 0) return;
   create_selectbox(get_exttypes());
   $("select[name='pinned_items_filter']").change(function() {
     var selected_ext = $(this).val();
     if (selected_ext == "ALL") {
-      $("div.section_content.pinned_items div.pinned_item").each(function() {
-        $(this).show();
-      });
+      showAll();
     } else if (selected_ext == "message") {
-      $("div.section_content.pinned_items div.pinned_item").each(function() {
-        $(this).show();
-      });
-      $("div.section_content.pinned_items p.pin_metadata").each(function() {
-        $(this).parent('div').hide();
-      });
+      showMessage();
     } else {
-      $("div.section_content.pinned_items div.pinned_item").each(function() {
-        $(this).hide();
-      });
-      $("div.section_content.pinned_items p.pin_metadata").each(function() {
-        var ext = $(this).text().trim();
-        if (ext == selected_ext) {
-          $(this).parent('div').show();
-        }
-      });
+      showSelectedExt(selected_ext);
     }
   });
 }
-
-$(document).on("click", "div.channel_page_pinned_items div.section_header", function() {
-  add_filter();
-});
 
 wait_while_loading = function(){
   if ($("div.section_content.pinned_items div.pinned_item").length == 0){
@@ -63,4 +69,11 @@ wait_while_loading = function(){
   }
 }
 
-wait_while_loading();
+start = function(){
+  $(document).on("click", "div.channel_page_pinned_items div.section_header", function() {
+    add_filter();
+  });
+  wait_while_loading();
+}
+
+start();
