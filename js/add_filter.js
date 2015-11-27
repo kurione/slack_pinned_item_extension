@@ -20,12 +20,13 @@ create_selectbox = function(arr) {
   });
 }
 
-showAll = function(){
+show_all = function(){
   $("div.section_content.pinned_items div.pinned_item").each(function() {
     $(this).show();
   });
 }
-showMessage = function(){
+
+show_message = function(){
   $("div.section_content.pinned_items div.pinned_item").each(function() {
     $(this).show();
   });
@@ -33,7 +34,8 @@ showMessage = function(){
     $(this).parent('div').hide();
   });
 }
-showSelectedExt = function(selected_ext){
+
+show_selected_ext = function(selected_ext){
   $("div.section_content.pinned_items div.pinned_item").each(function() {
     $(this).hide();
   });
@@ -51,11 +53,11 @@ add_filter = function(){
   $("select[name='pinned_items_filter']").change(function() {
     var selected_ext = $(this).val();
     if (selected_ext == "ALL") {
-      showAll();
+      show_all();
     } else if (selected_ext == "message") {
-      showMessage();
+      show_message();
     } else {
-      showSelectedExt(selected_ext);
+      show_selected_ext(selected_ext);
     }
   });
 }
