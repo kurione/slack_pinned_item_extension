@@ -1,8 +1,8 @@
 {
-  "name": "slack filter extension for pinned item menu",
-  "version": "0.0.1",
+  "name": "slack filter extension",
+  "version": "1.0.0",
   "manifest_version": 2,
-  "description": "This extension provide a dropdown box in pinned item area. And filtering pinned item from file extensions.",
+  "description": "This extension provide a dropdown box in pinned item area. And filtering pinned item by extensions.",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -20,8 +20,5 @@
         "css/semantic.min.css"
       ]
     }
-  ],
-  "permissions": [
-    "tabs", "https://*.slack.com/*"
   ]
 }
