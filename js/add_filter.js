@@ -63,18 +63,18 @@ add_filter = function(){
   });
 }
 
-wait_while_page_pinned_items = function(){
+wait_while_show_page_pinned_items = function(){
   if ($("div.channel_page_pinned_items div.section_content").length > 0){
     add_filter();
   }
-  setTimeout(wait_while_page_pinned_items, 300);
+  setTimeout(wait_while_show_page_pinned_items, 300);
 }
 
 start = function(){
   $(document).on("click", "div.channel_page_pinned_items div.section_header", function() {
     add_filter();
   });
-  wait_while_page_pinned_items();
+  wait_while_show_page_pinned_items();
 }
 
 start();
