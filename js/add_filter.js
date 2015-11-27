@@ -11,13 +11,16 @@ get_exttypes = function() {
 }
 
 create_selectbox = function(arr) {
-  $(".section_content.pinned_items").prepend("<label for='pinned_items_filter'>filter by:</label><select name='pinned_items_filter' class='form-control'></select>");
+  $(".section_content.pinned_items").prepend("<select name='pinned_items_filter' class='ui fluid dropdown'></select>");
   $("select[name='pinned_items_filter']")
-    .append("<option value='ALL'>ALL</option>")
-    .append("<option value='message'>message</option>");
+    .append("<option value=''>filter by</option>")
+    .append("<option value='All'>All</option>")
+    .append("<option value='Message'>Message</option>");
   $.each(arr, function() {
     $("select[name='pinned_items_filter']").append("<option value='" + this + "'>" + this + "</option>");
   });
+  $("select[name='pinned_items_filter']").dropdown();
+  $("select[name='pinned_items_filter']").parent().attr('style', 'margin-bottom:10px')
 }
 
 show_all = function(){
@@ -53,9 +56,9 @@ add_filter = function(){
   create_selectbox(get_exttypes());
   $("select[name='pinned_items_filter']").change(function() {
     var selected_ext = $(this).val();
-    if (selected_ext == "ALL") {
+    if (selected_ext == "All") {
       show_all();
-    } else if (selected_ext == "message") {
+    } else if (selected_ext == "Message") {
       show_message();
     } else {
       show_selected_ext(selected_ext);
