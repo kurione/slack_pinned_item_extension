@@ -12,15 +12,15 @@ get_exttypes = function() {
 
 create_selectbox = function(arr) {
   $(".section_content.pinned_items").prepend("<select name='pinned_items_filter' class='ui fluid dropdown'></select>");
-  $("select[name='pinned_items_filter']")
-    .append("<option value=''>filter by</option>")
+  $select = $("select[name='pinned_items_filter']");
+  $select.append("<option value=''>filter by</option>")
     .append("<option value='All'>All</option>")
     .append("<option value='Message'>Message</option>");
   $.each(arr, function() {
-    $("select[name='pinned_items_filter']").append("<option value='" + this + "'>" + this + "</option>");
+    $select.append("<option value='" + this + "'>" + this + "</option>");
   });
-  $("select[name='pinned_items_filter']").dropdown();
-  $("select[name='pinned_items_filter']").parent().attr('style', 'margin-bottom:10px')
+  $select.dropdown();
+  $select.parent().attr('style', 'margin-bottom:10px')
 }
 
 show_all = function(){
@@ -73,11 +73,11 @@ wait_while_show_page_pinned_items = function(){
   setTimeout(wait_while_show_page_pinned_items, 300);
 }
 
-start = function(){
+function start_scripts() {
   $(document).on("click", "div.channel_page_pinned_items div.section_header", function() {
     add_filter();
   });
   wait_while_show_page_pinned_items();
 }
 
-start();
+start_scripts();
