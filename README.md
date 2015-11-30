@@ -10,4 +10,6 @@ pinned itemの種別によって分類されたドロップダウンリストの
 
 chromeの拡張機能のメニューを開き、デベロッパーモードをチェックし、crxファイルをD&Dしてください。  
 
+[slack_pinned_item_extension.crx](slack_pinned_item_extension.crx)
+
 インストール後chromeを再起動もしくはslackを開いている画面をリロードすれば拡張機能が有効になります。
