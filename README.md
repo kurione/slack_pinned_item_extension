@@ -1,8 +1,8 @@
-### slack filter extension
+# slack filter extension
 
 ### これは何？
 
-chromeの拡張機能で、slackの右サイドメニューのpinned itemメニュー内に、  
+chromeの拡張機能です。slackの右サイドメニューのpinned itemメニュー内に、  
 pinned itemの種別によって分類されたドロップダウンリストのフィルターを追加します。
 ![](https://raw.githubusercontent.com/wiki/kurione/slack_pinned_item_extension/slack.png)
 
